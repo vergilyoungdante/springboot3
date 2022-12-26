@@ -1,7 +1,7 @@
 spring:
   main:
 #    spring开机log
-    log-startup-info: off
+    log-startup-info: on
 #    懒加载
     lazy-initialization: true
 

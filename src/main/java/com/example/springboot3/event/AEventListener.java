@@ -1,5 +1,6 @@
 package com.example.springboot3.event;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +13,17 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AEventListener {
+public class AEventListener implements DisposableBean {
 
     @EventListener
     public void listener(Message message){
         System.out.println("A收到信息:" + message);
+    }
+    /**
+    * shutdown hook
+    * */
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("关闭AEventListener");
     }
 }

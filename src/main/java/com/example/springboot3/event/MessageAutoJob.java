@@ -21,7 +21,7 @@ public class MessageAutoJob {
     @Autowired
     private PublishService publishService;
 
-    @Scheduled(fixedRate=1000)
+    @Scheduled(fixedRate=10000)
     public void sendMessage(){
         publishService.register(new Message("are you ok?",i+1));
     }

@@ -15,5 +15,14 @@ spring:
         max-size: 16
         queue-capacity: 100
         keep-alive: 10s
-
+        allow-core-thread-timeout: true
+    scheduling:
+      pool:
+        size: 2
+      thread-name-prefix: "scheduling-"
+      shutdown:
+        # 允许等待线程池完成已存在的任务
+        await-termination: true
+        # 设置等待超时时间
+        await-termination-period: 120s
 

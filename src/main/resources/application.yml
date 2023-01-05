@@ -29,6 +29,35 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 60s
 
+  datasource:
+    local:
+      url: jdbc:postgresql://localhost:5432/postgres
+      platform: postgres
+      username: postgres
+      password: 921115
+    remote:
+      url: jdbc:postgresql://localhost:5433/postgres
+      platform: postgres
+      username: postgres
+      password: 921115
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 600000
+      pool-name: vergilPool
+      max-lifetime: 28740000
+      connection-test-query: SELECT 1
+
+
 server:
   # 延时关机，等待网络请求处理完毕
   shutdown: graceful

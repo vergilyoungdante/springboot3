@@ -24,8 +24,8 @@ public class CORSConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("*")
-                        //是否允许发放cookie信息
-                        .allowCredentials(true)
+                        //是否允许发放cookie信息，设置成true会报错
+                        .allowCredentials(false)
                         .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
                         .maxAge(3600);
             }
